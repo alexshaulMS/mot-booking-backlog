@@ -24,5 +24,5 @@ export const features = {
   slot7: null,
 
   // Slot 8: design and accessibility
-  slot8: null,
+  slot8: () => import("./design/view.mjs"),
 };
