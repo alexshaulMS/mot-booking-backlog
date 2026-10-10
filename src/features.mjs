@@ -3,7 +3,7 @@
 
 export const features = {
   // Slot 1: registration validation
-  slot1: null,
+  slot1: () => import("./registration/view.mjs"),
 
   // Slot 2: date rules
   slot2: null,
