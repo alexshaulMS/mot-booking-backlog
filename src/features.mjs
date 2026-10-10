@@ -21,7 +21,7 @@ export const features = {
   slot6: null,
 
   // Slot 7: booking history
-  slot7: null,
+  slot7: () => import("./history/view.mjs"),
 
   // Slot 8: design and accessibility
   slot8: null,
