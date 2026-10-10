@@ -6,7 +6,7 @@ export const features = {
   slot1: () => import("./registration/view.mjs"),
 
   // Slot 2: date rules
-  slot2: null,
+  slot2: () => import("./dates/view.mjs"),
 
   // Slot 3: test centre finder
   slot3: null,
