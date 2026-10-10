@@ -18,7 +18,7 @@ export const features = {
   slot5: null,
 
   // Slot 6: calendar file
-  slot6: null,
+  slot6: () => import("./calendar/view.mjs"),
 
   // Slot 7: booking history
   slot7: null,
