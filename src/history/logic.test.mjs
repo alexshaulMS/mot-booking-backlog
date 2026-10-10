@@ -51,6 +51,16 @@ test("cancelling an unknown booking leaves the list unchanged", () => {
   assert.deepEqual(listBookings(storage), [added]);
 });
 
+test("cancelled IDs are not reused, so stale cancellation cannot remove a new booking", () => {
+  const storage = memoryStorage();
+  const first = addBooking(storage, example);
+  cancelBooking(storage, first.id);
+  const second = addBooking(storage, example);
+  assert.notEqual(second.id, first.id);
+  cancelBooking(storage, first.id);
+  assert.deepEqual(listBookings(storage), [second]);
+});
+
 test("changing a returned list does not change stored bookings", () => {
   const storage = memoryStorage();
   const added = addBooking(storage, example);

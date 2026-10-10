@@ -1,19 +1,23 @@
 const storageKey = "mot-booking-history";
 
+function readHistory(storage) {
+  return JSON.parse(storage.getItem(storageKey) ?? '{"nextId":1,"bookings":[]}');
+}
+
 export function listBookings(storage) {
-  return JSON.parse(storage.getItem(storageKey) ?? "[]");
+  return readHistory(storage).bookings;
 }
 
 export function addBooking(storage, booking) {
-  const bookings = listBookings(storage);
-  const id = bookings.reduce((highest, entry) => Math.max(highest, entry.id), 0) + 1;
+  const { nextId: id, bookings } = readHistory(storage);
   const entry = { id, registration: booking.registration, name: booking.name, date: booking.date };
-  storage.setItem(storageKey, JSON.stringify([entry, ...bookings]));
+  storage.setItem(storageKey, JSON.stringify({ nextId: id + 1, bookings: [entry, ...bookings] }));
   return entry;
 }
 
 export function cancelBooking(storage, id) {
-  const bookings = listBookings(storage).filter((booking) => booking.id !== id);
-  storage.setItem(storageKey, JSON.stringify(bookings));
+  const history = readHistory(storage);
+  const bookings = history.bookings.filter((booking) => booking.id !== id);
+  storage.setItem(storageKey, JSON.stringify({ ...history, bookings }));
   return bookings;
 }
