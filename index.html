@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <title>MOT booking</title>
+</head>
+<body>
+  <h1>MOT booking</h1>
+  <p>Book a test for your vehicle.</p>
+
+  <form id="booking-form">
+    <label for="registration">Registration</label>
+    <input id="registration" name="registration">
+    <br>
+    <label for="name">Name</label>
+    <input id="name" name="name">
+    <br>
+    <label for="date">Date</label>
+    <input id="date" name="date" type="date">
+    <br>
+    <button type="submit">Book</button>
+  </form>
+
+  <p id="status"></p>
+
+  <div id="app"></div>
+
+  <script type="module" src="./src/main.mjs"></script>
+</body>
+</html>

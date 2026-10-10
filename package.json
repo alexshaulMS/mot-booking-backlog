@@ -1,0 +1,11 @@
+{
+  "name": "mot-booking-backlog",
+  "version": "0.1.0",
+  "description": "A deliberately plain MOT booking page. Workshop demo: the GitHub Copilot cloud agent working through a backlog.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "node server.mjs"
+  },
+  "license": "MIT"
+}
