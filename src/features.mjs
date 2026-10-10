@@ -9,7 +9,7 @@ export const features = {
   slot2: () => import("./dates/view.mjs"),
 
   // Slot 3: test centre finder
-  slot3: null,
+  slot3: () => import("./centres/view.mjs"),
 
   // Slot 4: fee calculator
   slot4: null,
